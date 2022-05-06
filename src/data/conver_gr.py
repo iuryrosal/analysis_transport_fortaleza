@@ -13,7 +13,6 @@ def convert_gr_file(file):
             "ponto_tipo": [],
             "ponto_codigo": []}
 
-    index = 0
     for movimento in root.findall("Movimentos"):
             for empresa in movimento.findall("Empresa"):
                     for veiculo in empresa.findall("Veiculo"):
@@ -28,7 +27,5 @@ def convert_gr_file(file):
                                     data["ponto_data_hora"].append(ponto.get("data_hora"))
                                     data["ponto_tipo"].append(ponto.get("tipo"))
                                     data["ponto_codigo"].append(ponto.get("codigo"))
-
-                                    index = index + 1
 
     return pd.DataFrame(data)
