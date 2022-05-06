@@ -1,0 +1,61 @@
+@startuml
+class GR {
+  +String id
+  +String movimento_data_movimento
+  +String movimento_origem_rastreamento
+  +String empresa_codigo
+  +String veiculo_numero
+  +String ponto_data_hora
+  +String ponto_tipo
+  +String ponto_codigo
+}
+
+class V {
+  +String passageiro_data_hora
+  +String passageiro_integracao_bum
+  +String passageiro_valor_subsidio
+  +String passageiro_evento
+  +String passageiro_sigben
+  +String passageiro_integracao
+  +String passageiro_valor_pago
+  +String passageiro_tipo
+  +String passageiro_matricula
+  +String passageiro_valor_repasse_metro
+  +String passageiro_data_hora_abertura
+  +String passageiro_data_hora_fechamento
+  +String viagem_ponto_fechamento
+  +String viagem_ponto_abertura
+  +String viagem_sentido
+  +String viagem_ponto_abertura
+  +String viagem_ponto_fechamento
+  +String linha_hora_fechamento
+  +String linha_hora_abertura
+  +String linha_tabela
+  +String linha_num_operador
+  +String linha_jornada
+  +String linha_numero
+  +String veiculo_validador
+  +String veiculo_numero
+  +String empresa_modalidade
+  +String empresa_codigo
+  +String categoria_tipo
+  +String movimentos_data_arq
+  +String movimento_diario_data_mov
+}
+
+class FGR {
+  +String passageiro_grupo
+  +String passageiro_demanda
+  +String passageiro_arrecadacao
+  +String passageiro_arrecadacao_prevista
+  +String linha_numero
+  +String linha_nome
+  +String linha_kmTotalProgramada
+  +String linha_kmAdotada
+  +String linha_eficiencia
+  +String empresa_numero
+  +String empresa_nome
+  +String fechamento_data_movimento
+}
+
+@enduml
