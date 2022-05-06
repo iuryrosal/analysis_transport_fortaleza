@@ -29,7 +29,6 @@ def convert_gr_file(file):
                                     data["ponto_tipo"].append(ponto.get("tipo"))
                                     data["ponto_codigo"].append(ponto.get("codigo"))
 
-                                    data["ponto_indice"].append(index)
                                     index = index + 1
 
     return pd.DataFrame(data)
