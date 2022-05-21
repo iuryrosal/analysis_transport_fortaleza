@@ -3,6 +3,7 @@ import pandas as pd
 from psutil import disk_partitions
 from conver_gr import convert_gr_file
 from conver_v import convert_v_file
+from conver_fgr import convert_fgr_file
 import logging
 
 logging.basicConfig(filename = "log_processamento.log",
@@ -16,13 +17,16 @@ def convert_files(files: list, index: int = 0, df_array: list = [], type_file = 
         logging.info("Processando: " + files[index])
         if type_file == "gr":
             df_temp = convert_gr_file(files[index])
+            file_type = 'gr'
         elif type_file == "v":
             df_temp = convert_v_file(files[index])
+            file_type = 'v'
         else:
-            df_temp = convert_gr_file(files[index])
+            df_temp = convert_fgr_file(files[index])
+            file_type = 'fgr'
 
         df_array.append(df_temp)
-        return convert_files(files, index + 1, df_array)
+        return convert_files(files, index + 1, df_array, file_type)
 
 def pick_files(directory):
     return glob.glob(directory)
@@ -41,5 +45,12 @@ def make_dataset():
                           type_file="v")
     df_gr.to_csv("../../data/processed/V.csv")
     logging.info("Processamento V Concluído")
+
+    logging.info("Processamento FGR Iniciado")
+    files = pick_files("../../data/raw/fgr/FGR*.xml")
+    df_gr = convert_files(files = files,
+                          type_file="fgr")
+    df_gr.to_csv("../../data/processed/FGR.csv")
+    logging.info("Processamento FGR Concluído")
 
 make_dataset()
